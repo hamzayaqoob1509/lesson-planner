@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.pyo
+*.pyd
+*.pyc
+
+# Environment
+.env
+.env.*  # for env-specific files like .env.development
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.envrc
+
+# Django specific
+*.log
+db.sqlite3
+media/
+staticfiles/
+static_root/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# JetBrains IDEs (PyCharm, etc.)
+.idea/
+
+# Migrations (optional: only if you auto-generate them and don't want to track)
+# ** Be cautious — removing this will prevent migrations from being versioned **
+# */migrations/*.py
+# */migrations/*.pyc
+
+# Coverage and testing
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Node.js stuff (if using frontend tools)
+node_modules/
+dist/
+build/

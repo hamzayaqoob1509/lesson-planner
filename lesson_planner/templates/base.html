@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- {% load static tailwind_tags %} -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Compass Maturity Model</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- {% tailwind_css %} -->
+</head>
+<style>
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+        font-weight: bold;
+        color: #fff !important;
+        letter-spacing: 1px;
+    }
+
+    .nav-link {
+        color: #f8f9fa !important;
+    }
+</style>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <!-- {% if profile.role == 'consultant' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'internal_dashboard' %}">Internal Dashboard</a>
+                            </li>
+                        {% elif profile.role == 'client' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'client_dashboard' %}">Dashboard</a>
+                            </li>
+                        {% endif %} -->
+
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button class="btn btn-sm btn-danger ms-2">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

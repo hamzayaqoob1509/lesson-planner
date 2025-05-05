@@ -7,8 +7,11 @@ from .models import Document
 from .utils import store_document_in_pinecone, search_similar_chunks
 from pinecone import Pinecone, ServerlessSpec
 import chardet
+from decouple import config
+# Load API keys from environment or settings
+OPENAI_API_KEY = config("OPENAI_API_KEY")
 
-pc = Pinecone(api_key="pcsk_5UYoAU_KQQzpErejyp86WpXeQpNDKPvQJsKeyNroLNuCy5X4BLXYBkxTCZ9X16iAeYHwP4")
+pc = Pinecone(api_key=config("OPENAI_API_KEY")")
 
 # Create or connect to your Pinecone index
 index_name = "lesson-index"

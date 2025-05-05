@@ -3,11 +3,12 @@ import tiktoken
 import os
 from pinecone import Pinecone, ServerlessSpec
 from django.conf import settings
+from decouple import config
 
 # Load API keys from environment or settings
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", settings.OPENAI_API_KEY)
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY", settings.PINECONE_API_KEY)
-PINECONE_ENV = os.getenv("PINECONE_ENV", "us-east-1")
+OPENAI_API_KEY = config("OPENAI_API_KEY")
+PINECONE_API_KEY = config("PINECONE_API_KEY")
+PINECONE_ENV = config("PINECONE_ENV", "us-east-1")
 PINECONE_INDEX = "lesson-index"
 
 # Initialize OpenAI client
